@@ -25,7 +25,6 @@ jobs:
       - name: ⚙️ Setup TeX Live with Chinese support
         uses: xu-cheng/latex-action@v3
         with:
-          working_directory: src/
           root_file: main.tex
           latexmk_use_xelatex: true
 
@@ -51,7 +50,7 @@ jobs:
       - name: 📎 Upload main PDF
         uses: softprops/action-gh-release@v1
         with:
-          files: src/main.pdf
+          files: main.pdf
           tag_name: ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
