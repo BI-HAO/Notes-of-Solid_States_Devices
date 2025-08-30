@@ -1,0 +1,85 @@
+\documentclass[12pt,oneside,a4paper]{book}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%
+%% 引用宏包 %%
+\usepackage{ctex}
+\usepackage{titlesec}
+\usepackage{amsmath,amssymb,amsthm,multicol,siunitx,graphicx,enumitem,booktabs,appendix}
+\usepackage{booktabs}
+\usepackage{tabularx,subcaption,arydshln}
+\usepackage{tikz}
+\usepackage{arydshln}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix, positioning, arrows}
+\usepackage[edges]{forest}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage{imakeidx}
+\usepackage{framed}
+\usepackage{multirow}
+
+%% 超链接与引用 %%
+\usepackage{hyperref}
+\hypersetup{
+    hidelinks, % 取消红框
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=pink
+}
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% info %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 文档信息及标题 %%
+\title{凝聚态物理}
+\author{AnZreww}
+\date{\today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% document %%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle          %标题
+
+\frontmatter
+\chapter{前言}
+\textbf{关于本书}
+
+作为笔者对\textbf{凝聚态物理}的学习笔记，本书涵盖《固体物理》、《半导体物理》、《半导体器件》三门学科。
+
+在第一部分《固体物理》中，我们将介绍\textbf{固态晶体}的晶格结构、倒格子、晶格振动、能带理论等内容；
+
+在第二部分《半导体物理》中，我们将介绍\textbf{半导体}的电子状态、掺杂与缺陷、载流子的统计分布、导电性、非平衡载流子等内容；
+
+在第三部分《半导体器件》中，我们将介绍PN结、肖特基二极管、双极性晶体管、异质结晶体管、MOS场效应管等\textbf{半导体器件}。
+
+\hspace{2em}
+
+\textbf{内容参考}
+
+整理笔记过程中，参考了普渡大学\href{https://nanohub.org/courses/ECE606/2020x/outline}{ECE 606：固态器件}课程。
+
+笔记亦可作为电子科学与技术专业学生的参考资料。
+
+\hspace{2em}
+
+\textbf{致谢}
+
+由于笔者能力有限，内容势必存在不足与缺漏，敬请斧正。
+
+\tableofcontents    %目录
+
+\mainmatter
+
+\include{part1}
+
+\include{part2}
+
+\include{part3}
+
+\backmatter
+
+\end{document}

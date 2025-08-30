@@ -1,0 +1,57 @@
+name: Upload PDF Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # --------------------------
+      # 1️⃣ Checkout
+      # --------------------------
+      - name: 🧾 Checkout repository
+        uses: actions/checkout@v3
+
+      # --------------------------
+      # 2️⃣ Setup LaTeX
+      # --------------------------
+      - name: ⚙️ Setup TeX Live with Chinese support
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: src/
+          root_file: main.tex
+          latexmk_use_xelatex: true
+
+      # --------------------------
+      # 3️⃣ Create GitHub Release
+      # --------------------------
+      - name: 🚀 Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "Auto Release ${{ github.ref_name }}"
+          body: |
+            📄 This PDF was automatically generated from commit `${{ github.sha }}`
+            📝 Commit message: ${{ github.event.head_commit.message }}
+            🔗 Commit URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # --------------------------
+      # 4️⃣ Upload main PDF
+      # --------------------------
+      - name: 📎 Upload main PDF
+        uses: softprops/action-gh-release@v1
+        with:
+          files: src/main.pdf
+          tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
