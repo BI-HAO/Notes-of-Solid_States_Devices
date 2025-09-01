@@ -136,13 +136,216 @@
 \subsubsection{第三类晶格：复式晶格}
     上述的第一类晶格与第二类晶格，常见于同一种原子所组成的单质晶体。我们现在介绍一些由多种原子或离子所组成的化合物晶体的晶格。
 
+    我们介绍简单晶格与复式晶格的概念。化合物常表现为复式晶格。
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{简单晶格}\index{简单晶格}：所有原子完全等价。将晶格从一个原子向另一个原子作平移后，新得到的晶格与原晶格完全复原。
+        \item \textbf{复式晶格}\index{复式晶格}：含有两种及以上不等价的所有原子或离子。将晶格从一个粒子向另一个粒子作平移后，无法复原晶格。复式晶格总可以看成若干种简单晶格的套构。
+    \end{itemize}
 
+    我们以下面三种化合物晶体为例，研究复式晶格及其套构。
 
+    \textbf{CsCl结构}\index{CsCl结构}：CsCl结构与体心立方类似，但位于体心与位于顶点的分别是两种不同的离子，每种离子位于8个异类离子构成的立方体的中心。如果考虑整个晶格，“顶点”与“体心”的概念是相对的，二者完全等效。
 
+    \textbf{NaCl结构}\index{NaCl结构}：将$Na^+$离子和$Cl^-$离子交替放在一个简单立方晶格上，构成NaCl结构。显然$Na^+$离子与$Cl^-$离子两类粒子不等价。实际上所有的碱金属-卤化物晶体都具有NaCl结构。
 
+    \textbf{ZnS结构}\index{金刚石结构}：闪锌矿ZnS的结构与面心立方类似，由面心立方的中心到各个顶角作8条对角线，并在其中4条互不相邻的对角线的中点放置另一种粒子。两种粒子位置不等价，每种粒子处于4个最近邻异类粒子所构成的四面体的中心。两种粒子各自构成的四面体在取向上相差$90^{\circ}$。金刚石与半导体材料锗、硅也具有该结构。
 
+    归纳复式晶格如\autoref{tab:1-4}所示：
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{cccc}
+                & CsCl结构 & NaCl结构 & 金刚石结构\\
+                & \includegraphics[height=8em, keepaspectratio=true]{pic/1-12} & \includegraphics[height=8em, keepaspectratio=true]{pic/1-13} & \includegraphics[height=8em, keepaspectratio=true]{pic/1-14}\\
+            有效原子数  &2&8&8\\
+            配位数$n$   &8&6&4\\
+            套构情况    &简单立方沿对角线方向$\frac{1}{2}$套构&面心立方沿棱方向$\frac{1}{2}$套构&体心立方沿对角线方向$\frac{1}{4}$套构\\
+        \end{tabular}
+        }
+        \caption{复式晶格}
+        \label{tab:1-4}
+    \end{table}
     
-\section{晶体的平移对称性}
+\section{晶体的周期性}\index{晶体的周期性}
+    凡是晶体就具有\textbf{周期性}，也称为平移对称性。我们可以用一个最小的、完全等价的结构单元，在空间无限重复，从而得到整个晶格。这个能够充分反映晶体结构特征的全同结构单元称为\textbf{晶胞}\index{晶胞}或\textbf{基元}。晶胞有多种选取方式，最实用的是单胞与原胞两种。
+
+    为了研究晶体的周期性即平移对称性，我们忽略晶体中的具体粒子，将不等价的粒子（即基元）抽象为几何点，从而原本复杂的晶格被抽象为纯粹的几何点阵。这样的点阵称为\textbf{布拉菲点阵}或\textbf{布拉菲格子}\index{布拉菲格子}。
+
+\subsection{布拉菲点阵}
+    布拉菲点阵作为数学概念，是由分立点所构成的无限阵列，从阵列的任何一个结点去看，周围各结点的分布与方位都是精确相同的。
+
+    对于晶格来说，我们通过将基元抽象为几何点得到布拉菲格子。于是我们有：
+    \[
+        \mbox{<晶体>}=\mbox{<基元>}+\mbox{<布拉菲点阵>}
+    \]
+    
+    我们考虑二维平面与三维空间中有多少种布拉菲格子，即几何点在二维平面（三维空间）有多少种周期性的规律排布。
+
+\subsubsection{二维布拉菲格子}
+    共存在5种二维布拉菲格子，又可分为4种晶系。我们记二维点阵的两边为$a$、$b$，第三边为$c$；夹角为$\gamma$，其分类标准及转化关系如下所示。
+
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{ccccc}
+            \toprule
+            布拉菲格子& 边长特征        & 夹角特征                   & 晶系     & 转化关系 \\
+            \midrule
+            斜方      & $a\neq b$      & $\gamma \neq 90^{\circ}$  & 斜方晶系 & \multirow{5}{*}[-0.5em]{\includegraphics[height=7em, keepaspectratio=true]{pic/1-16}}\\
+            有心长方  & $a = c \neq b$ & $\gamma \neq 90^{\circ}$  & \multirow{2}{*}{长方晶系} &\\
+            长方      & $a\neq b$      & $\gamma=90^{\circ}$       &         &  \\
+            六角      & $a=b$          & $\gamma=60^{\circ}$       & 六角晶系 &  \\
+            正方      & $a=b$          & $\gamma=90^{\circ}$       & 正方晶系 &  \\
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{二维布拉菲格子}
+        \label{tab:1-5}
+    \end{table}
+
+    \autoref{fig:1-05}可以证明，左侧的所谓“有心正方”晶格实际上等价于“正方”，即5种二维布拉菲格子已经完备。
+
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[height=9em, keepaspectratio=true]{pic/1-17}
+        \caption{不存在“有心正方”晶格}
+        \label{fig:1-05}
+    \end{figure}
+
+\subsubsection{三维布拉菲格子}
+    共存在14种二维布拉菲格子，又可分为7种晶系。我们记三维点阵的三边为$a$、$b$、$c$，三个方向的夹角为$\alpha$、$\beta$、$\gamma$。
+
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{ccccc}
+            \toprule
+            晶系     & 边长特征         & 夹角特征                   & 布拉菲格子  & 示意图 \\
+            \midrule
+            三斜晶系 & $a\neq b\neq c$ & $\alpha \neq \beta \neq \gamma$                 & 简单三斜    & \multirow{7}{*}[-1.5em]{\includegraphics[height=10em, keepaspectratio=true]{pic/1-18}} \\
+            单斜晶系 & $a\neq b\neq c$ & $\alpha=\gamma=90^{\circ}\neq \beta $           & 简单单斜、底心单斜    & \\
+            三角晶系 & $a=b=c$         & $\alpha=\beta=\gamma\neq90^{\circ}<120^{\circ}$ & 三角    & \\
+            正交晶系 & $a\neq b\neq c$ & $\alpha=\beta=\gamma=90^{\circ}$                & \makecell{简单正交、底心正交、\\体心正交、面心正交}    & \\
+            四角晶系 & $a=b\neq c$     & $\alpha=\beta=\gamma=90^{\circ}$                & 简单四角、体心四角    & \\
+            六角晶系 & $a=b\neq c$     & $\alpha=\beta=90^{\circ}, \gamma=120^{\circ}$   & 六角    & \\
+            正方晶系 & $a=b=c$         & $\alpha=\beta=\gamma=90^{\circ}$                & \makecell{简单立方、体心立方、\\面心立方}    & \\
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{三维布拉菲格子}
+        \label{tab:1-6}
+    \end{table}
+
+    与二维平面不存在所谓“有心正方”同理，三维空间不存在所谓“底心立方”、“面心正方”、“体心单斜”晶格，实际上等价于“简单立方”、“体心正方”、“底心单斜”，证明如\autoref{fig:1-06}所示。这也说明了14种三维布拉菲格子的完备性。
+
+    \begin{figure}[!htbp]
+        \centering
+        \begin{minipage}[t]{0.3\linewidth}
+            \includegraphics[width=1\linewidth, keepaspectratio=true]{pic/1-19}
+            \subcaption{“底心立方”}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.3\linewidth}
+            \includegraphics[width=1\linewidth, keepaspectratio=true]{pic/1-20}
+            \subcaption{“面心正方”}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.3\linewidth}
+            \includegraphics[width=1\linewidth, keepaspectratio=true]{pic/1-21}
+            \subcaption{“体心单斜”}
+        \end{minipage}
+        \caption{不存在“底心立方”、“面心正方”、“体心单斜”晶格}
+        \label{fig:1-06}
+    \end{figure}
+
+    布拉菲点阵是晶格的数学抽象。只要将基元按照布拉菲点阵排布，就可以还原晶体结构。同一种布拉菲点阵可以对应不同的晶体结构，但其平移对称性是一致的。
+
+\subsection{单胞和原胞}
+    三维晶格的晶胞通常是一个平行六面体，沿着某点出发的三条边取单位矢量$\vec{a_1}$、$\vec{a_2}$、$\vec{a_3}$，即晶胞的单位边矢量，这就是\textbf{晶格基矢}\index{晶格基矢}。晶胞所占的体积$\Omega=(\vec{a_1}\cdot \vec{a_2})\times \vec{a_3}$。
+
+    现在研究晶胞的选取，常选取单胞或原胞作为晶胞：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{单胞}\index{单胞}：反映晶格的宏观对称特性，常选取立方晶胞，其三条基矢沿着晶体的结晶方向，且尽可能构成正交系。
+        \item \textbf{原胞}\index{原胞}：指晶格体积最小的周期性单元，可通过任意两结点的平移矢量$\vec{R}$不重不漏密排整个空间。原胞中只含有一个结点。原胞的三条基矢沿原胞的边的方向。
+    \end{itemize}
+
+    实际上单胞与原胞有多种取法。在晶体学中对各种晶格的单胞与原胞的选取做了规定：
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{cclcl}
+            \toprule
+            晶格类型 & \multicolumn{2}{c}{单胞} & \multicolumn{2}{c}{原胞}\\
+            \midrule
+            简单立方 & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-22} & $
+            \begin{cases}
+            \vec{a_1}=a\vec{i}\\
+            \vec{a_2}=a\vec{j}\\
+            \vec{a_3}=a\vec{k}\\
+            \end{cases}
+            $ & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-24} & $
+            \begin{cases}
+            \vec{a_1}=a\vec{i}\\
+            \vec{a_2}=a\vec{j}\\
+            \vec{a_3}=a\vec{k}\\
+            \end{cases}
+            $ \\
+            面心立方 & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-22} & $
+            \begin{cases}
+            \vec{a_1}=a\vec{i}\\
+            \vec{a_2}=a\vec{j}\\
+            \vec{a_3}=a\vec{k}\\
+            \end{cases}
+            $ & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-25} & $
+            \begin{cases}
+            \vec{a_1}=\frac{a}{2}(\vec{i}+\vec{j})\\
+            \vec{a_2}=\frac{a}{2}(\vec{j}+\vec{k})\\
+            \vec{a_3}=\frac{a}{2}(\vec{k}+\vec{i})\\
+            \end{cases}
+            $ \\
+            体心立方 & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-22} & $
+            \begin{cases}
+            \vec{a_1}=a\vec{i}\\
+            \vec{a_2}=a\vec{j}\\
+            \vec{a_3}=a\vec{k}\\
+            \end{cases}
+            $ & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-26} & $
+            \begin{cases}
+            \vec{a_1}=\frac{a}{2}(\vec{i}+\vec{j}-\vec{k})\\
+            \vec{a_2}=\frac{a}{2}(\vec{j}+\vec{k}-\vec{i})\\
+            \vec{a_3}=\frac{a}{2}(\vec{k}+\vec{i}-\vec{j})\\
+            \end{cases}
+            $ \\
+            六角密排 & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-23} & $
+            \begin{cases}
+            \vec{a_1}=a\vec{i}\\
+            \vec{a_2}=a\vec{j}\\
+            \vec{a_3}=c\vec{k}\\
+            \end{cases}
+            $ & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-27} & $
+            \begin{cases}
+            \vec{a_1}=a\vec{i}\\
+            \vec{a_2}=\frac{a}{2}\vec{i}+\frac{\sqrt{3}a}{2}\vec{j}\\
+            \vec{a_3}=c\vec{k}\\
+            \end{cases}
+            $ \\
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{单胞与原胞的选取}
+        \label{tab:1-7}
+    \end{table}
+
+    观察发现：单胞实际上是扩大了的原胞，是较大的周期单元；某些情况单胞与原胞相同。
+
+\subsection{晶体的平移对称性}
+    对于二维基矢$\{\vec{a_1}, \vec{a_2}\}$或三维基矢$\{\vec{a_1}, \vec{a_2}\, \vec{a_3}\}$，点阵中的每个结点可以写成
+    
+
 \section{晶体的方向性}
 \section{晶体的宏观对称性}
 
