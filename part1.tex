@@ -167,7 +167,7 @@
         \label{tab:1-4}
     \end{table}
     
-\section{晶体的周期性}\index{晶体的周期性}
+\section{晶体的周期性}\index{晶体的周期性}\label{sec:1-2}
     凡是晶体就具有\textbf{周期性}，也称为平移对称性。我们可以用一个最小的、完全等价的结构单元，在空间无限重复，从而得到整个晶格。这个能够充分反映晶体结构特征的全同结构单元称为\textbf{晶胞}\index{晶胞}或\textbf{基元}。晶胞有多种选取方式，最实用的是单胞与原胞两种。
 
     为了研究晶体的周期性即平移对称性，我们忽略晶体中的具体粒子，将不等价的粒子（即基元）抽象为几何点，从而原本复杂的晶格被抽象为纯粹的几何点阵。这样的点阵称为\textbf{布拉菲点阵}或\textbf{布拉菲格子}\index{布拉菲格子}。
@@ -556,10 +556,605 @@
 
     因此立方单胞的密勒指数可能与其原胞的晶面指数不同。可以证明，立方体结构中，晶面的密勒指数与晶面法线方向的晶向指数完全相同。当密勒指数与晶面指数一致时，可以通过计算晶向指数，快速得到晶面指数，这也是计算晶面指数的另一种方法。
     
-    具体来说，\autoref{tab:1-9}中就给出了立方体结构晶格常用晶面的晶面指数，及其法线的晶向指数，二者是完全相同的。
-
+    具体来说，\autoref{tab:1-9}中就给出了立方体结构晶格常用晶面的晶面指数，及其法线的晶向指数——二者是完全相同的。
 
 \section{晶体的宏观对称性}
+    我们在\nameref{sec:1-2}一节，研究了晶体的周期性，即晶体的平移对称性，这也是固体理论中最重要的性质。具体来说，晶体通过平移矢量$\vec{R_l}$进行平移后，晶格可以完全复位。
+    
+    而实际上，晶体还具有另一类对称性：\textbf{点对称性}，也称为\textbf{宏观对称性}。晶体中的粒子是周期性规律排列的，布拉菲格子是所有晶体的共同性质，基于粒子的周期排列，产生了不同晶体所具备的、不同的宏观对称性。
+
+    所谓\textbf{宏观对称性}\label{宏观对称性}，即晶体绕着某条轴进行旋转、绕着某个点进行反演操作后，晶格可以完全复位的性质。由于旋转或反演过程中，晶体至少有一个结点保持不动，整个晶体未进行平移操作，所以我们也称为\textbf{点对称性}\label{点对称性}。
+    
+\subsection{旋转与反演}
+\subsubsection{变换矩阵}
+    从数学的角度考虑对晶体做几何变换，即：
+    \[
+    \left(
+    \begin{array}{c}
+        x \\
+        y \\
+        z \\
+    \end{array}
+    \right)
+    \stackrel{D}{\longrightarrow}
+    \left(
+    \begin{array}{c}
+        x' \\
+        y' \\
+        z' \\
+    \end{array}
+    \right)
+    =
+    D
+    \left(
+    \begin{array}{c}
+        x \\
+        y \\
+        z \\
+    \end{array}
+    \right)
+    =
+    \left(
+    \begin{array}{ccc}
+        d_{11} & d_{12} & d_{13} \\
+        d_{21} & d_{22} & d_{23} \\
+        d_{31} & d_{32} & d_{33} \\
+    \end{array}
+    \right)
+    \left(
+    \begin{array}{c}
+        x \\
+        y \\
+        z \\
+    \end{array}
+    \right)
+    \]
+    其中$D$为变换矩阵，反映对晶体所做的几何变换：
+    \[
+    D=
+    \left(
+    \begin{array}{ccc}
+        d_{11} & d_{12} & d_{13} \\
+        d_{21} & d_{22} & d_{23} \\
+        d_{31} & d_{32} & d_{33} \\
+    \end{array}
+    \right)
+    \]
+    
+    我们考察变换矩阵$D$的性质。点对称操作是刚性操作，不会改变晶体的布拉菲格子，变换前后晶体中任意两点的距离不变：
+    \begin{align*}
+        x^2+y^2+z^2 & = x'^2+y'^2+z'^2\\
+        (x,y,z)^T \cdot (x,y,z) & = (x',y',z')^T \cdot (x',y',z')\\
+         & = (D\cdot(x,y,z))^T \cdot (D\cdot(x,y,z))\\
+         & = (x,y,z)^T \cdot D^T \cdot D \cdot (x,y,z)\\
+         & = (x,y,z)^T \cdot (D^T \cdot D) \cdot (x,y,z)
+    \end{align*}
+
+    因此要求变换矩阵$D$满足$D^T\cdot D = I$，其中$I$为单位矩阵。从而变换矩阵$D$是\textbf{正交矩阵}，正交矩阵满足$D^{-1}=D^T$。
+
+    考虑$D$的行列式的值。取行列式有$\left\lvert D\right\rvert^2=1$，从而变换矩阵$D$的行列式的值$\left\lvert D\right\rvert= \pm 1$。
+
+\subsubsection{旋转操作、反演操作的变换矩阵}
+    三维晶体的几何操作即正交变换，总可以表示成绕某一轴的旋转、对某中心的反演及其组合。
+    
+    因此我们可以将复杂的几何操作抽象为若干次基本的旋转、反演的叠加；矩阵上则是旋转矩阵和反演矩阵的相乘。
+
+    因此我们给出旋转操作、反演操作的变换矩阵表示：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item 
+        绕$z$轴旋转$\theta$的变换矩阵：
+        \[
+        D=
+        \left(
+        \begin{array}{ccc}
+            \cos\theta & -\sin\theta & 0 \\
+            \sin\theta & \cos\theta  & 0 \\
+            0          & 0           & 1 \\
+        \end{array}
+        \right)
+        ,\qquad\left\lvert D\right\rvert= 1
+        \]
+        其中$\theta$为旋转角。绕其他轴旋转同理。
+        \item 
+        绕原点做反演操作，也称中心反演的变换矩阵：
+        \[
+        D=
+        \left(
+        \begin{array}{ccc}
+            -1 & 0 & 0 \\
+            0 & -1 & 0 \\
+            0 & 0 & -1 \\
+        \end{array}
+        \right)
+        ,\qquad\left\lvert D\right\rvert= -1
+        \]
+    \end{itemize}
+    应注意当变换矩阵表示旋转时的行列式的值取$1$；当变换矩阵表示反演时的行列式的值取$-1$。
+
+\subsection{对称性、对称操作与对称素}
+    从群论的角度，我们介绍对称性的概念如下：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{对称性}\index{对称性}：经过对称操作后，系统保持不变的性质；
+        \item \textbf{对称操作}\index{对称操作}：使得系统不变的操作；
+        \item \textbf{对称素}\index{对称素}：对称操作所依赖的具体几何要素
+    \end{itemize}
+
+    对称操作可以概括系统的对称性。为了方便描述，有时不去列举具体的对称操作，而是描述系统所具有的对称素：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item 如果系统绕某轴旋转$\frac{2\pi}{n}$及其倍数不变，则称该轴为\textbf{$n$重旋转轴}，记为$n$。
+        \item 如果系统对某点反演不变，则称这个点为\textbf{对称心}，记为$i$。
+        \item 如果系统绕某轴旋转$\frac{2\pi}{n}$及其倍数后再反演不变，则称该轴为\textbf{$n$重旋转-反演轴}，记为$\overline{n}$。
+    \end{itemize}
+
+\subsubsection{宏观对称性的破缺}
+    如果是抽象的数学图形，它可能具有无穷多的对称操作及对称素。例如：球可以绕经过球心的任意轴线旋转任意角度，它有无数条无数重旋转（反演）轴；一条直线可以在上面的任何位置进行反演，其对称心有无数个。
+
+    晶体则受制于具体晶格的限制。晶体本身经历对称操作不变，其布拉菲点阵经过对称操作也必须保持重合。晶体的宏观对称性是晶体中粒子规则排列的结果，也就必然受到平移对称性的制约：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{对称操作及对称素有限}：只有绕着晶轴旋转某些特定角度，或关于某些特定结点进行反演，才有可能在操作后保持晶格不变。
+        \item \textbf{对称素的组合有限}：对称素组合时受到严格限制，存在互斥关系与约束条件。
+    \end{itemize}
+
+\subsubsection{晶体的8种独立的对称素}
+    基于这种破缺或限制，我们讨论对称操作及其对称素的可能取值。
+
+    关注旋转操作。如\autoref{fig:1-13}所示，$A$、$B$是晶格中的两个结点，它们完全等价。关于$A$结点逆时针旋转$\theta$，原先的$B$结点来到$B'$位置；关于$B$结点顺时针旋转$\theta$，原先的$A$结点来到$A'$位置。为使晶体在旋转前后晶格不变，此处的$A'$、$B'$所在的位置在旋转前的晶格中必须存在结点。
+
+    \begin{figure}[!htbp]
+        \centering    
+        \includegraphics[height=8em, keepaspectratio=true]{pic/1-43}
+        \caption{晶体的旋转操作}
+        \label{fig:1-13}
+    \end{figure}
+    
+    由几何关系可知$AB\mathop{//}A'B'$，从而
+    \[
+    \left\lvert A'B' \right\rvert = (1-2\cos \theta) \left\lvert AB\right\rvert= m\left\lvert AB\right\rvert
+    \]
+    其中$m$为整数，$\theta \in [0, 2\pi)$
+
+    联立可得
+    \begin{align*}
+        m&=(1-2\cos \theta) \\
+         &=-1,0,1,2,3  \\
+        \theta&=0^\circ,60^\circ,90^\circ,120^\circ,180^\circ
+    \end{align*}
+
+    并依次对应$n=1,6,4,3,2$重旋转轴。
+
+    考虑反演有$n=\overline{1},\overline{6},\overline{4},\overline{3},\overline{2}$重旋转-反演轴。
+
+    综上，晶体中最多只存在十种对称素：
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{cccccc}
+            \toprule
+            旋转角度         & $360^\circ$ & $180^\circ$ & $120^\circ$ & $90^\circ$ & $60^\circ$ \\
+            \midrule
+            $n$重旋转轴      & 1 & 2 & 3 & 4 & 6 \\
+            $n$重旋转-反演轴 & $\overline{1}$ & $\overline{2}$ & \textcolor{blue}{$\overline{3}$} & $\overline{4}$ & \textcolor{blue}{$\overline{6}$} \\
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{晶体中的十种对称素}
+        \label{tab:1-10}
+    \end{table}
+
+    应注意十种对称素中，$\overline{3}$等价于$3+\overline{1}$，$\overline{6}$等价于$\overline{3}+\overline{2}$，即它们可以由其他对称素导出。因此晶体中独立的对称素共$1,2,3,4,6,\overline{1},\overline{2},\overline{4}$共8种。
+
+    对称素组合时，对称轴间的夹角、对称轴的数目等受到严格限制。举例来说：若晶体具有两条2重轴，其夹角必定为$30^{\circ}$、$45^{\circ}$、$60^{\circ}$、$90^{\circ}$中的一个；晶体最多就有一条6重轴；晶体的6重轴与4重轴不可能相交$\dots$
+
+\subsection{宏观对称性与点群}
+    晶体的\textbf{宏观对称性}\index{宏观对称性}要求考察该晶体的所有对称操作：对称操作越多，其宏观对称性越高。将晶体中全部对称操作的集合称为\textbf{对称操作群}\index{对称操作群}。基于\autoref{tab:1-10}所述的十种对称素所构成的对称操作群称为\textbf{点群}\index{点群}。
+    
+    从而晶体的宏观对称性可以用点群描述，宏观对称性不同的晶体属于不同的点群。
+
+\subsubsection{立方点群$O_h$的对称性}
+    我们考虑立方点群$O_h$的对称性。我们先讨论关于对称点的不动与反演操作，随后关注不同轴线作为对称素时的旋转（反演）操作——此时不考虑不动与反演即可：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{不动与反演}：立方点群包括不动操作与反演操作。
+        \item \textbf{对于三条立方轴}：每根轴线作为4重旋转轴及4重旋转反演轴，包括绕立方轴旋转$90^{\circ}$、$180^{\circ}$、$270^{\circ}$；绕立方轴旋转$90^{\circ}$、$180^{\circ}$、$270^{\circ}$再反演的六个对称操作。三条立方轴共计18个对称操作。
+        \item \textbf{对于六条面对角线轴}：每根轴线作为2重旋转轴及2重旋转反演轴，包括绕面对角线轴旋转$180^{\circ}$；绕面对角线轴旋转$180^{\circ}$再反演的两个对称操作。六条面对角线轴共计12个对称操作。
+        \item \textbf{对于四条体对角线轴}：每根轴线作为3重旋转轴及3重旋转反演轴，包括绕体对角线轴旋转$120^{\circ}$、$240^{\circ}$；绕体对角线轴旋转$120^{\circ}$、$240^{\circ}$再反演的四个对称操作。四条面对角线轴共计16个对称操作。
+    \end{itemize}
+    综上，立方点群$O_h$共计$2+18+12+16=48$种对称操作，如\autoref{fig:1-14}所示：
+
+    \begin{figure}[!htbp]
+        \centering    
+        \includegraphics[height=20em, keepaspectratio=true]{pic/1-44}
+        \caption{立方点群$O_h$的对称性}
+        \label{fig:1-14}
+    \end{figure}
+
+    总结成表格形式，如\autoref{tab:1-11}所示：
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{clc}
+            \toprule
+            对称素                                    & 对称操作                                        & 数目 \\
+            \midrule
+            三个4重轴$\left\langle 100\right\rangle $ & 旋转$90^{\circ}$、$180^{\circ}$、$270^{\circ}$  & 9\\
+            六个2重轴$\left\langle 110\right\rangle $ & 旋转$180^{\circ}$                               & 6\\
+            四个3重轴$\left\langle 111\right\rangle $ & 旋转$120^{\circ}$、$240^{\circ}$                & 8\\
+            \multirow{2}{*}{对称心}                   & 不动                                            & 1 \\
+                                                      & 上述所有操作的反演                               & 24 \\
+            \midrule
+            \multicolumn{2}{c}{合计}                                                                   & 48 \\ 
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{立方点群$O_h$的对称性}
+        \label{tab:1-11}
+    \end{table}
+
+\subsubsection{正四面体点群$T_d$的对称性}
+    我们考虑正四面体点群$T_d$的对称性。我们将正四面体点群$T_d$视为立方体点群$O_h$四个彼此不相邻的顶点，正四面体点群$T_d$的对称操作就包含在立方体点群$O_h$的对称操作之中。从而只需考虑正四面体点群$T_d$无法满足的对称操作即可。
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{不动与反演}：立方点群包括不动操作，不包括反演操作。
+        \item \textbf{对于三条立方轴}：每根轴线作为4重旋转轴：包括绕立方轴旋转$180^{\circ}$；每根轴线作为4重旋转反演轴，包括绕立方轴旋转$90^{\circ}$、$270^{\circ}$再反演的三个对称操作。三条立方轴共计9个对称操作。
+        \item \textbf{对于六条面对角线轴}：每根轴线作为2重旋转反演轴，包括绕面对角线轴旋转$180^{\circ}$再反演的一个对称操作。六条面对角线轴共计6个对称操作。
+        \item \textbf{对于四条体对角线轴}：每根轴线作为4重旋转轴：包括绕立方轴旋转$120^{\circ}$、$240^{\circ}$的两个对称操作。四条面对角线轴共计8个对称操作。
+    \end{itemize}
+    综上，正四面体点群$T_d$共计$1+9+6+8=24$种对称操作，如\autoref{fig:1-15}所示：
+
+    \begin{figure}[!htbp]
+        \centering    
+        \includegraphics[height=20em, keepaspectratio=true]{pic/1-45}
+        \caption{正四面体点群$T_d$的对称性}
+        \label{fig:1-15}
+    \end{figure}
+
+    总结成表格形式，如\autoref{tab:1-12}所示。正四面体点群$T_d$是不具备反演及其对称心的，立方点群$O_h$所具备的4重轴和对称心$i$（即立方轴）退化为4重旋转反演轴，2重轴和对称心$i$（即面对角线）退化为2重旋转反演轴，3重轴和对称心$i$（即体对角线）退化为3重旋转轴，关于对称心的不动和反演退化为不动。因此立方点群$O_h$的对称性明显高于正四面体点群$T_d$。
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{clc}
+            \toprule
+            对称素                                           & 对称操作                                         & 数目 \\
+            \midrule
+            三条4重旋转反演轴$\left\langle 100\right\rangle $ & \makecell[l]{旋转$90^{\circ}$、$270^{\circ}$再反演，\\旋转$180^{\circ}$（反演两次复原）}  & 9\\
+            六条2重旋转反演轴$\left\langle 110\right\rangle $ & 旋转$180^{\circ}$再反演                          & 6\\
+            四条3重旋转轴$\left\langle 111\right\rangle $     & 旋转$120^{\circ}$、$240^{\circ}$                & 8\\
+                                                             & 不动                                            & 1 \\
+            \midrule
+            \multicolumn{2}{c}{合计}                                                                           & 48 \\ 
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{正四面体点群的对称性}
+        \label{tab:1-12}
+    \end{table}
+
+\subsubsection{晶体的32种点群}
+    由群论知识和晶格限制，晶体所具有的十种对称素$1,2,3,4,6,\overline{1},\overline{2},\overline{3},\overline{4},\overline{6}$只能构成32种点群，也就是说晶体的宏观对称性只有32种。
+    
+    应当指出，\nameref{tab:1-5}和\nameref{tab:1-6}的晶系是基于晶体的宏观对称性进行划分的的。一方面，这说明晶体的宏观对称性依然受到布拉菲格子乃至平移对称性的约束限制；另一方面，也反映布拉菲格子可以反映晶体的平移对称性与宏观对称性，是研究晶格的重要工具。
+
+    综合考虑宏观对称性与平移对称性。点对称操作（旋转和反演）的集合构成点群，而平移对称操作（即平移晶格使晶体自身重合）的集合构成\textbf{平移群}。晶格全部对称操作，包括点对称操作和平移对称操作，其集合构成\textbf{空间群}。不同的空间群共230种。也就是说晶格结构的对称性共有230个类型。
+
+\subsection{晶体宏观对称性的应用}
+\subsubsection{物理性质张量}
+    我们首先介绍\textbf{张量}\index{张量}的概念。\textbf{张量}（Tensor）是定义在向量空间和对偶空间的笛卡尔积上的多重线性映射，在$|n|$维空间内，含有$|n|$个分量，其中每个分量都是坐标的函数。在坐标变换时，这些分量也相应的作线性变换。
+
+    张量概念包括标量、向量和线性算子，我们定义$r$为张量的\textbf{秩}或\textbf{阶数}\index{张量的阶数}。
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item 第零阶张量$r = 0$为标量（Scalar）
+        \item 第一阶张量$r = 1$为向量（Vector）
+        \item 第二阶张量$r = 2$为矩阵（Matrix）
+        \item 高阶张量$r \geq 3$可以作为线性算子，表述线性运算
+    \end{itemize}
+
+    物体的物理性质，常通过两个物理量之间的关系来定义。例如以下关系分别给出密度、电导率和介电常数：
+    \begin{align*}
+        m &= \rho \cdot V\\
+        \vec{J} &= \sigma \cdot \vec{E}\\
+        \vec{D} &= \varepsilon \cdot \vec{E}\\
+    \end{align*}
+
+    其一般形式为$B=C\cdot A$，其中$A$为$n$阶作用张量，$B$为$m$阶感生张量，$C$则为$m+n$阶物理性质张量。
+    
+    在三维笛卡尔空间中，$A$、$B$常为$1\times 3$的向量，即第一阶张量$r=1$。于是可以用$3\times 3$的矩阵，即第二阶张量$r=2$表述物理性质张量$C$：
+    \[
+    C=
+    \left(
+    \begin{array}{ccc}
+        c_{11} & c_{12} & c_{13} \\
+        c_{21} & c_{22} & c_{23} \\
+        c_{31} & c_{32} & c_{33} \\
+    \end{array}
+    \right)
+    \]
+
+\subsubsection{诺埃曼原理和居里原理}
+    诺埃曼原理和居里原理分别不存在外场作用和存在外场作用时，晶体物理性质张量$C$的对称性与晶体宏观对称性的关系。
+
+    \textbf{诺埃曼原理}\index{诺埃曼原理}：晶体物理性质的对称性$\geq$晶体的宏观对称性。
+
+    \textbf{居里原理}\index{居里原理}：晶体所受外场作用的对称性$\geq$晶体的宏观对称性。即当晶体所受外场作用的对称性$\geq$晶体原本的宏观对称性时，晶体宏观对称性不变；当晶体所受外场作用的对称性$<$晶体原本的宏观对称性时，晶体宏观对称性被迫降低。
+
+    我们可以认为：居里原理考察外场作用与晶体宏观对称性的关系；而诺埃曼原理则考察晶体物理性质与晶体宏观对称性的关系。当外场作用不得忽略时，需要先利用居里原理确定晶体的宏观对称性，外场作用后晶体的物理性质与晶体此时的宏观对称性依然满足诺埃曼原理。
+
+    这就说明，我们可以利用晶体的宏观对称性对晶体的物理性质张量$C$做出限制与约束，从而简化其运算或形式。我们考虑下面的例子。
+
+    对于晶体的介电常数，我们有：
+    \[
+    \vec{D} = \boldsymbol{\varepsilon} \cdot \vec{E}
+    \]
+    其中介电常数$\boldsymbol{\varepsilon}$用矩阵表示为：
+    \[
+    \boldsymbol{\varepsilon}=
+    \left(
+    \begin{array}{ccc}
+        \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+        \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+        \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+    \end{array}
+    \right)
+    \]
+
+    对晶体进行旋转操作，我们回忆旋转操作的变换矩阵：
+    \[
+    A=
+    \left(
+    \begin{array}{ccc}
+        \cos\theta & -\sin\theta & 0 \\
+        \sin\theta & \cos\theta  & 0 \\
+        0          & 0           & 1 
+    \end{array}
+    \right)
+    \]
+    应注意$A$是正交矩阵，由正交性$A^T=A^{-1}$。
+
+    旋转操作后，电位移矢量与电场强度发生改变，有：
+    \begin{align*}
+        \vec{D'} &= A \cdot \vec{D}\\
+        \vec{E'} &= A \cdot \vec{E}
+    \end{align*}
+
+    介电常数可以相应的表示为：
+    \[
+    \vec{D'} = \boldsymbol{\varepsilon'} \cdot \vec{E'}
+    \]
+
+    联立可得：
+    \begin{align*}
+        \vec{D'}= \boldsymbol{\varepsilon'} \cdot \vec{E'}&= A \cdot \vec{D}\\
+                                                          &= A \cdot \boldsymbol{\varepsilon} \cdot \vec{E}\\
+                                                          &= A \cdot \boldsymbol{\varepsilon} \cdot A^{-1} \cdot \vec{E'}
+    \end{align*}
+
+    旋转不改变介电常数本身，即介电常数矩阵$\boldsymbol{\varepsilon}$满足
+    \begin{align*}
+        \boldsymbol{\varepsilon'} &= A \cdot \boldsymbol{\varepsilon} \cdot A^{-1}\\
+                                  &= A \cdot \boldsymbol{\varepsilon} \cdot A^{T} = \boldsymbol{\varepsilon} 
+    \end{align*}
+
+    这体现了晶体的介电常数这一物理性质，其张量$\boldsymbol{\varepsilon}$的分量受到旋转矩阵$A$的约束与限制，因此晶体的宏观对称性大大减少了独立分量数目。即：\textbf{晶体的对称性在确定晶体物理常数的独立个数上有重要意义，它可以简化物理常数的测量。}
+
+    我们以立方晶体、六角对称晶体为例，它们各自具有关于$90^{\circ}$和$60^{\circ}$的旋转不变性。我们接下来将看到晶体各自的宏观对称性是如何简化物理性质张量的。
+
+    \newpage
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{立方对称的晶体}：在立方对称的晶体中，我们选取两次旋转操作：
+        \begin{itemize}[itemsep=0pt,parsep=0pt]
+            \item 
+            绕4重旋转轴（$z$轴）旋转$90^{\circ}$，旋转矩阵$
+            A=
+            \left(
+            \begin{array}{ccc}
+                0 & -1 & 0 \\
+                1 & 0 & 0 \\
+                0 & 0 & 1 
+            \end{array}
+            \right)
+            $
+
+            \begin{align*}
+                A \cdot \boldsymbol{\varepsilon} \cdot A^{T}&=
+                \left(
+                \begin{array}{ccc}
+                    0 & -1 & 0 \\
+                    1 & 0 & 0 \\
+                    0 & 0 & 1 
+                \end{array}
+                \right)
+                \cdot
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+                    \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+                    \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+                \end{array}
+                \right)
+                \cdot
+                \left(
+                \begin{array}{ccc}
+                    0 & 1 & 0 \\
+                    -1 & 0 & 0 \\
+                    0 & 0 & 1 
+                \end{array}
+                \right)\\
+                &=
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{22} & -\varepsilon_{21} & -\varepsilon_{23} \\
+                    -\varepsilon_{12} & \varepsilon_{11} & \varepsilon_{13} \\
+                    -\varepsilon_{32} & \varepsilon_{31} & \varepsilon_{33} \\
+                \end{array}
+                \right)
+                \equiv 
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+                    \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+                    \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+                \end{array}
+                \right)
+                =\boldsymbol{\varepsilon}
+            \end{align*}
+            化简可得
+            \[
+            \boldsymbol{\varepsilon}=
+            \left(
+            \begin{array}{ccc}
+                \varepsilon_{0} & 0 & 0 \\
+                0 & \varepsilon_{0} & 0 \\
+                0 & 0 & \varepsilon_{33} \\
+            \end{array}
+            \right)
+            \]
+            \item
+            绕4重旋转轴（$x$轴）旋转$90^{\circ}$，旋转矩阵$ 
+            A=
+            \left(
+            \begin{array}{ccc}
+                1 & 0 & 0 \\
+                0 & 0 & -1\\
+                0 & 1 & 0
+            \end{array}
+            \right)
+            $
+
+            \begin{align*}
+                A \cdot \boldsymbol{\varepsilon} \cdot A^{T}&=
+                \left(
+                \begin{array}{ccc}
+                    1 & 0 & 0 \\
+                    0 & 0 & -1\\
+                    0 & 1 & 0
+                \end{array}
+                \right)
+                \cdot
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{0} & 0 & 0 \\
+                    0 & \varepsilon_{0} & 0 \\
+                    0 & 0 & \varepsilon_{33} \\
+                \end{array}
+                \right)
+                \cdot
+                \left(
+                \begin{array}{ccc}
+                    1 & 0 & 0 \\
+                    0 & 0 & 1 \\
+                    0 & -1 & 0
+                \end{array}
+                \right)\\
+                &=
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{0} & 0 & 0 \\
+                    0 & \varepsilon_{0} & 0 \\
+                    0 & 0 & \varepsilon_{0}
+                \end{array}
+                \right)
+                \equiv \boldsymbol{\varepsilon}
+            \end{align*}
+        \end{itemize}
+        综上可知，立方对称的晶体的介电常数$\boldsymbol{\varepsilon}$用矩阵表示为：
+        \[
+        \boldsymbol{\varepsilon}=
+        \left(
+        \begin{array}{ccc}
+            \varepsilon_{0} & 0 & 0 \\
+            0 & \varepsilon_{0} & 0 \\
+            0 & 0 & \varepsilon_{0} \\
+        \end{array}
+        \right)
+        \]
+        这实际上是一个标量，即\textbf{立方对称的晶体的介电常数为标量}。
+
+        \item \textbf{六角对称的晶体}：在六角对称的晶体中，我们绕6重旋转对称轴（$z$轴）旋转$60^{\circ}$，旋转矩阵$ 
+        A=
+        \left(
+        \begin{array}{ccc}
+            \frac{1}{2} & -\frac{\sqrt{3}}{2} & 0 \\
+            \frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\
+            0 & 0 & 1
+        \end{array}
+        \right)
+        $
+        
+        \begin{align*}
+                &A \cdot \boldsymbol{\varepsilon} \cdot A^{T}=
+                \left(
+                \begin{array}{ccc}
+                    \frac{1}{2} & -\frac{\sqrt{3}}{2} & 0 \\
+                    \frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\
+                    0 & 0 & 1
+                \end{array}
+                \right)
+                \cdot
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+                    \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+                    \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+                \end{array}
+                \right)
+                \cdot
+                \left(
+                \begin{array}{ccc}
+                    \frac{1}{2} & \frac{\sqrt{3}}{2} & 0 \\
+                    -\frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\
+                    0 & 0 & 1
+                \end{array}
+                \right)\\
+                &=
+                \left(
+                \begin{array}{ccc}
+                \frac{1}{4}\varepsilon_{11}-\frac{3}{4}\varepsilon_{22}+\tfrac{\sqrt{3}}{4}(\varepsilon_{12}-\varepsilon_{21}) &
+                -\tfrac{\sqrt{3}}{4}\varepsilon_{11}+\tfrac{1}{4}\varepsilon_{12}+\tfrac{3}{4}\varepsilon_{21}-\tfrac{\sqrt{3}}{4}\varepsilon_{22} &
+                \tfrac{1}{2}\varepsilon_{13}-\tfrac{\sqrt{3}}{2}\varepsilon_{23}
+                \\[8pt]
+                \tfrac{\sqrt{3}}{4}\varepsilon_{11}+\tfrac{3}{4}\varepsilon_{12}+\tfrac{1}{4}\varepsilon_{21}+\tfrac{\sqrt{3}}{4}\varepsilon_{22} &
+                -\tfrac{3}{4}\varepsilon_{11}+\tfrac{1}{4}\varepsilon_{22}+\tfrac{\sqrt{3}}{4}(\varepsilon_{12}-\varepsilon_{21}) &
+                \tfrac{\sqrt{3}}{2}\varepsilon_{13}+\tfrac{1}{2}\varepsilon_{23}
+                \\[8pt]
+                \tfrac{1}{2}\varepsilon_{31}+\tfrac{\sqrt{3}}{2}\varepsilon_{32} &
+                -\tfrac{\sqrt{3}}{2}\varepsilon_{31}+\tfrac{1}{2}\varepsilon_{32} &
+                \varepsilon_{33}
+                \end{array}
+                \right)\\
+                &\equiv \boldsymbol{\varepsilon}=
+                \left(
+                \begin{array}{ccc}
+                    \varepsilon_{11} & \varepsilon_{12} & \varepsilon_{13} \\
+                    \varepsilon_{21} & \varepsilon_{22} & \varepsilon_{23} \\
+                    \varepsilon_{31} & \varepsilon_{32} & \varepsilon_{33} \\
+                \end{array}
+                \right)
+        \end{align*}
+        通过矩阵求解方程，我们可以整理得到：
+        \[
+        \boldsymbol{\varepsilon}=
+        \left(
+        \begin{array}{ccc}
+            \varepsilon_{\perp } & 0 & 0 \\
+            0 & \varepsilon_{\perp } & 0 \\
+            0 & 0 & \varepsilon_{\mathop{//}} \\
+        \end{array}
+        \right)
+        \]
+
+        介电常数在平行于$z$轴与垂直于$z$轴方向上的差别，正是六角对称晶体具有双折射现象的成因。
+    \end{itemize}
+
+\section{晶体的结合}
+    \textbf{晶体的结合}\index{晶体的结合}有四种基本方式：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{离子型}：正、负离子间的静电吸引力
+        \item \textbf{金属型}：离子实与价电子之间的静电库仑力
+        \item \textbf{共价型}：最外层电子不会脱离原来原子，靠近的两原子各出一个电子，形成电子共享。这一对电子的自旋相反，称为配对电子。
+        \item \textbf{范德华型}：源自瞬时偶极与诱导偶极之间的弱相互作用，结合力较弱。
+    \end{itemize}
+    实际晶体的结合以这四种方式为基础，可能同时包含上述的多种方式。
+
 
 \chapter{倒格子与波矢空间}\label{chap:2}
 \section{倒格子}
