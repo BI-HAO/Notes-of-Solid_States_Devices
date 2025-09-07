@@ -372,7 +372,7 @@
     \[
         V(\vec{r})=V(\vec{r}+\vec{R_l})
     \]
-    其中$\vec{r}$是坐标原点到任意位置的位移矢量。
+    其中$\vec{r}$是坐标原点到任意位置的位移矢量。\label{tag:Crystal_Periodicity}
 
 \section{晶体的方向性}\index{晶体的方向性}
     晶体的一个基本特点是具有\textbf{方向性}，沿晶格的不同方向晶体性质不同。这种性质差异被称为\textbf{各向异性}\index{各向异性}。这是因为单晶材料内部原子排列具有方向性，不同晶面方向上，原子的排列密度、原子间的结合强度、电子的运动方式等等都会有所不同，从而导致性质上的差异。
@@ -492,7 +492,7 @@
 
     确定晶面指数的程序可以归纳为：
     \begin{enumerate}[itemsep=0pt,parsep=0pt]
-        \item \textbf{找截距}：在一组晶面中，找出任一晶面在基矢坐标轴上的截距$r$、$s$、$t$；
+        \item \textbf{找截距}：找出任一晶面在基矢坐标轴上的截距$r$、$s$、$t$；
         \item \textbf{取倒数}：取截距的倒数$h_1 = \frac{1}{r}, h_2 = \frac{1}{s}, h_3 = \frac{1}{t}$；
         \item \textbf{化互质}：确保晶面指数$(h_1, h_2, h_3)$互质。负数则在上方画一横线表示。
     \end{enumerate}
@@ -524,7 +524,7 @@
                                            & 等效晶向 & $<100>$ & $<110>$ & $<111>$ \\
             \hline
             \multirow{3}{*}[-3em]{\textbf{晶面}} & 晶面数   & 6 & 12 & 8 \\
-                                           & 等效晶面 & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-39} & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-40} & \includegraphics[valign=m, height=4em, keepaspectratio=true]{pic/1-41} \\
+                                           & 等效晶面 & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-39} & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-40} & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-41} \\
                                            & 等效晶面 & $\{100\}$ & $\{110\}$ & $\{111\}$ \\
             \bottomrule
         \end{tabular}
@@ -536,7 +536,7 @@
 \subsubsection{密勒指数}
     无论是晶向指数还是晶面指数，都依托于所选取的基矢。
     
-    当所选取的晶胞是单胞时，记此时的晶面指数为\textbf{密勒指数}\label{密勒指数}，用$\{h, k, l\}$表示；当所选取的晶胞是原胞时，记此时的晶面指数为$\{h_1, h_2, h_3\}$。
+    当所选取的晶胞是单胞时，记此时的晶面指数为\textbf{密勒指数}\index{密勒指数}，用$\{h, k, l\}$表示；当所选取的晶胞是原胞时，记此时的晶面指数为$\{h_1, h_2, h_3\}$。
 
     如\nameref{tab:1-7}所述，考虑到：
     \begin{itemize}[itemsep=0pt,parsep=0pt]
@@ -549,7 +549,7 @@
 
     \begin{figure}[!htbp]
         \centering    
-        \includegraphics[height=12em, keepaspectratio=true]{pic/1-42}
+        \includegraphics[height=11em, keepaspectratio=true]{pic/1-42}
         \caption{单胞可能导致晶面的丢失}
         \label{fig:1-12}
     \end{figure}
@@ -563,7 +563,7 @@
     
     而实际上，晶体还具有另一类对称性：\textbf{点对称性}，也称为\textbf{宏观对称性}。晶体中的粒子是周期性规律排列的，布拉菲格子是所有晶体的共同性质，基于粒子的周期排列，产生了不同晶体所具备的、不同的宏观对称性。
 
-    所谓\textbf{宏观对称性}\label{宏观对称性}，即晶体绕着某条轴进行旋转、绕着某个点进行反演操作后，晶格可以完全复位的性质。由于旋转或反演过程中，晶体至少有一个结点保持不动，整个晶体未进行平移操作，所以我们也称为\textbf{点对称性}\label{点对称性}。
+    所谓\textbf{宏观对称性}\index{宏观对称性}，即晶体绕着某条轴进行旋转、绕着某个点进行反演操作后，晶格可以完全复位的性质。由于旋转或反演过程中，晶体至少有一个结点保持不动，整个晶体未进行平移操作，所以我们也称为\textbf{点对称性}\index{点对称性}。
     
 \subsection{旋转与反演}
 \subsubsection{变换矩阵}
@@ -1155,18 +1155,203 @@
     \end{itemize}
     实际晶体的结合以这四种方式为基础，可能同时包含上述的多种方式。
 
-
 \chapter{倒格子与波矢空间}\label{chap:2}
-\section{倒格子}
-\section{布里渊区}
-\section{X射线衍射}
+    本章将利用傅里叶变换，从晶格和布拉菲点阵所处的位置空间，进入波矢和倒格子所处的波矢空间：
+    \[
+        \mbox{<位置空间>}\xrightarrow{\mbox{傅里叶变换}}\mbox{<波矢空间>} 
+    \]
 
-\chapter{晶格振动}
+    我们通过\autoref{fig:1-16}的例子，来说明傅里叶变换的核心思想。对于时域的方波信号，经过傅里叶变换得到其不同频率的正余弦分量，并以这些频率分量$k$为参数绘制频域，从而将时域信号转换为频域分量。即对于同一物理问题，通过不同视角，可以使问题得到简化。
+
+    \begin{figure}[!htbp]
+        \centering    
+        \includegraphics[height=8em, keepaspectratio=true]{pic/2-01}
+        \caption{傅里叶变换的核心思想}
+        \label{fig:1-16}
+    \end{figure}
+
+    傅里叶变换表征所包含的不同频率的正/余弦波的振幅，其公式如下：
+    \begin{align}
+        F(k)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} f(x)e^{-jkx} \,\mathrm{d}x\\
+        f(x)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} F(k)e^{+jkx} \,\mathrm{d}k 
+    \end{align}
+           
+    应用傅里叶变换，可以方便地研究晶格中波的传播与相互作用。我们重点关注晶格中的这三种波：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{X射线衍射的电磁波}：X射线、中子、电子束在晶体中的衍射是研究晶体结构最重要的手段。
+        \item \textbf{晶格振动的格波}：晶体中的原子并非静止不动，而是在平衡位置附近振动。这种振动以波的形式在晶体中传播。原子集体的振动模式被称为格波，每一种振动模式都可以看作一种简谐波。
+        \item \textbf{电子的物质波}：电子具有波粒二象性，其量子态用一个波函数来描述。自由电子的波函数表现为行波；晶体中的电子处在原子核周期性排列产生的势场中，波函数更加复杂。
+    \end{itemize}
+
+    我们将在本章最后\nameref{sec:2-3}介绍X射线衍射探测晶格，并作为倒格子的一种应用；随后在\nameref{chap:3}介绍晶格振动所产生的格波、在\nameref{chap:4}介绍电子的德布罗意波。而实际上，X射线的电磁波需要与晶格的格波发生相互作用才能显示结构、电子在晶体中的运动也是电子的德布罗意波与晶格的格波相互作用的结果。
+    
+\section{倒格子}
+\subsection{倒映空间}
+    将在坐标空间的点阵，即布拉菲格子，称为\textbf{正格子}\index{正格子}。
+
+    如\nameref{tag:Crystal_Periodicity}所述，晶体内的任意物理量$V(\vec{r})$都是关于平移矢量$\vec{R}$的周期函数。即：
+    \begin{equation}
+        V(\vec{r})=V(\vec{r}+\vec{R})
+    \end{equation}
+
+    两边同时做傅里叶变换有：
+
+    \begin{equation}
+    \begin{aligned}
+        \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} V(\vec{r})e^{-j\vec{k}\vec{r}} \,\mathrm{d}\vec{r}&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} V(\vec{r}+\vec{R})e^{-j\vec{k}(\vec{r}+\vec{R})} \,\mathrm{d}\vec{r}\\
+        &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} V(\vec{r})e^{-j\vec{k}\vec{r}}\cdot e^{-j\vec{k}\vec{R}} \,\mathrm{d}\vec{r}
+    \end{aligned}
+    \end{equation}
+    其中$\vec{k}$为波矢，作为傅里叶变换后波矢空间的参数。
+
+    为使等号成立，要求
+    \begin{equation}
+        e^{-j\vec{k}\vec{R}}=1\qquad\mbox{即：}\vec{k}\cdot\vec{R}=2\pi n
+    \end{equation}
+    其中$n$取整数，$n=\dots{-2},-1,0,1,2\dots$
+
+    坐标空间的原胞的平移矢量写为$\vec{R}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，其中$\vec{a_i}$为原胞对应方向的晶格基矢；类似的，我们定义晶格中的任意波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，其中$\vec{b_j}$为波矢空间中的基矢，称为\textbf{倒格矢}\index{倒格矢}，且$a_i$、$b_j$满足：
+
+    \begin{equation}\label{eq:2.6}
+        \vec{a_i}\cdot\vec{b_j}=
+        \begin{cases}
+            2\pi,&i=j\\
+            0,&i\neq j
+        \end{cases}
+        =2\pi\delta_{ij}
+    \end{equation}
+
+    在三维笛卡尔空间中，倒格矢$\vec{b_i}$与另外两个晶格基矢$\vec{a_j}$、$\vec{a_k}$正交，其单位是$\frac{2\pi}{\mbox{[长度]}}$。倒格子依然是结点的有序排列，从点阵的角度，倒格子同样属于布拉菲点阵，也就自然只有7种晶系、十四种布拉菲格子。
+
+    正格子与倒格子的归纳如\autoref{tab:1-13}所示：
+    \begin{table}[!htbp]
+        \centering
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{cc}
+            \toprule
+            \multicolumn{2}{c}{\textbf{布拉菲点阵}}\\
+            \multicolumn{2}{c}{5种二维布拉菲点阵/14种三维布拉菲格子}\\
+            \midrule
+            \textbf{坐标空间}           & \textbf{倒映空间}\\
+            晶格                        & 倒格子\\
+            反映晶体的空间结构           & 反映晶体的物理性质\\
+            \midrule
+            \includegraphics[valign=m, height=5em, keepaspectratio=true]{pic/2-02}&\includegraphics[valign=m, height=5em, keepaspectratio=true]{pic/2-03}\\
+            \bottomrule
+        \end{tabular}
+        \caption{正格子与倒格子}
+        \label{tab:1-13}
+    \end{table}
+
+\subsection{倒格矢的确定}
+    本节则从\autoref{eq:2.6}出发，介绍如何确定二维倒格矢与三维倒格矢，并给出常见点阵的倒格矢。
+\subsubsection{二维倒格矢的确定}
+    在二维点阵中重述\autoref{eq:2.6}有：
+    \begin{subequations}\label{eq:2.7}
+    \begin{align}
+        \vec{b_1} \cdot \vec{a_1} &= 2\pi\\
+        \vec{b_1} \cdot \vec{a_2} &= 0
+    \end{align}
+    \end{subequations}
+    我们只考虑了一个方向的倒格矢$\vec{b_1}$，另一个方向的倒格矢$\vec{b_2}$同理。
+
+    想确定矢量就是要确定其模值与方向，而\autoref{eq:2.7}的两个式子就分别确定了模值与方向：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item 对于$\vec{b_1} \cdot \vec{a_2} = 0$，可知倒格矢$\vec{b_1}$与晶格基矢$\vec{a_2}$正交，倒格矢$\vec{b_1}$的方向垂直于晶格基矢$\vec{a_2}$；
+        \item 对于$\vec{b_1} \cdot \vec{a_1} = 2\pi$，可知晶格基矢$\vec{a_1}$在倒格矢$\vec{b_1}$方向上的投影，与倒格矢$\vec{b_1}$模值的乘积，等于$2\pi$。
+    \end{itemize}
+    从而倒格矢$\vec{b_1}$得到确定。
+
+    \nameref{tab:1-5}中的长方晶格、六角晶格的倒格矢如\autoref{fig:1-17}所示：
+    \begin{figure}[!htbp]
+        \centering    
+        \includegraphics[height=14em, keepaspectratio=true]{pic/2-04}
+        \caption{二维倒格矢的确定}
+        \label{fig:1-17}
+    \end{figure}
+
+\subsubsection{三维倒格矢的确定}
+    在三维点阵中重述\autoref{eq:2.6}有：
+    \begin{subequations}\label{eq:2.8}
+    \begin{align}
+        \vec{b_1} \cdot \vec{a_1} &= 2\pi\\
+        \vec{b_1} \cdot \vec{a_2} &= 0\\
+        \vec{b_1} \cdot \vec{a_3} &= 0
+    \end{align}
+    \end{subequations}
+    对于倒格矢$b_2$、$b_3$同理。
+
+    依然从方向与模值的角度进行考虑\autoref{eq:2.8}：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item 对于$\vec{b_1} \cdot \vec{a_2} = 0$和$\vec{b_1} \cdot \vec{a_3} = 0$，可知倒格矢$\vec{b_1}$与晶格基矢$\vec{a_2}$、$\vec{a_3}$正交，倒格矢$\vec{b_1}$的方向垂直于晶格基矢$\vec{a_2}$与$\vec{a_2}$所确定的平面。如果记晶格基矢$\vec{a_2}$与$\vec{a_2}$所确定的平面的法向量为$\vec{e_n}=\vec{a_2} \times \vec{a_3}$，则有$\vec{b_1}\mathop{//}\vec{e_n}$；
+        \item 对于$\vec{b_1} \cdot \vec{a_1} = 2\pi$，可知晶格基矢$\vec{a_1}$在法向量$\vec{e_n}=\vec{a_2} \times \vec{a_3}$方向上的投影，与倒格矢$\vec{b_1}$模值的乘积，等于$2\pi$。
+    \end{itemize}
+    从而倒格矢$\vec{b_1}$得到确定。
+
+    为了方便计算，整理三维倒格矢的公式如下：
+    \begin{equation}\label{eq:2.9}
+    \begin{aligned}
+        \vec{b_1} &=2\pi\frac{\vec{a_2}\times\vec{a_3}}{\vec{a_1}\cdot(\vec{a_2}\times\vec{a_3})}\\
+        \vec{b_2} &=2\pi\frac{\vec{a_3}\times\vec{a_1}}{\vec{a_2}\cdot(\vec{a_3}\times\vec{a_1})}\\
+        \vec{b_3} &=2\pi\frac{\vec{a_1}\times\vec{a_2}}{\vec{a_3}\cdot(\vec{a_1}\times\vec{a_2})}
+    \end{aligned}
+    \end{equation}
+
+    \begin{table}[!htbp]
+        \centering
+        \resizebox{\textwidth}{!}{
+        \setlength{\tabcolsep}{1em}
+        \begin{tabular}{cclcl}
+            \toprule
+            晶格类型 & \multicolumn{2}{c}{原胞基矢} & \multicolumn{2}{c}{倒格矢}\\
+            \midrule
+            面心立方 & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-25} & $
+            \begin{cases}
+            \vec{a_1}=\frac{a}{2}(\vec{i}+\vec{j})\\
+            \vec{a_2}=\frac{a}{2}(\vec{j}+\vec{k})\\
+            \vec{a_3}=\frac{a}{2}(\vec{k}+\vec{i})\\
+            \end{cases}
+            $ & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-26} & $
+            \begin{cases}
+            \vec{b_1}=\frac{2\pi}{a}(\vec{i}+\vec{j}-\vec{k})\\
+            \vec{b_2}=\frac{2\pi}{a}(\vec{j}+\vec{k}-\vec{i})\\
+            \vec{b_3}=\frac{2\pi}{a}(\vec{k}+\vec{i}-\vec{j})\\
+            \end{cases}
+            $ \\
+            体心立方 & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-26} & $
+            \begin{cases}
+            \vec{a_1}=\frac{a}{2}(\vec{i}+\vec{j}-\vec{k})\\
+            \vec{a_2}=\frac{a}{2}(\vec{j}+\vec{k}-\vec{i})\\
+            \vec{a_3}=\frac{a}{2}(\vec{k}+\vec{i}-\vec{j})\\
+            \end{cases}
+            $ & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-26} & $
+            \begin{cases}
+            \vec{b_1}=\frac{2\pi}{a}(\vec{i}+\vec{j})\\
+            \vec{b_2}=\frac{2\pi}{a}(\vec{j}+\vec{k})\\
+            \vec{b_3}=\frac{2\pi}{a}(\vec{k}+\vec{i})\\
+            \end{cases}
+            $ \\
+            \bottomrule
+        \end{tabular}
+        }
+        \caption{面心立方与体心立方的倒格矢}
+        \label{tab:1-14}
+    \end{table}
+
+    \autoref{tab:1-14}考虑面心立方与体心立方的倒格矢，可以发现：面心立方与体心立方互为倒格子。
+
+\subsection{倒格子的性质}
+    
+
+\section{布里渊区}
+\section{X射线衍射}\label{sec:2-3}
+
+\chapter{晶格振动}\label{chap:3}
 \section{一维单原子链的振动}
 \section{一维双原子链的振动}
 \section{三维晶格的振动}
 
-\chapter{能带理论}
+\chapter{能带理论}\label{chap:4}
 \section{自由电子近似}
 \section{近自由电子近似}
 \section{紧束缚近似}
