@@ -668,6 +668,7 @@
         \right)
         ,\qquad\left\lvert D\right\rvert= -1
         \]
+        反演是布拉菲点阵的固有属性，凡是布拉菲点阵均具有反演对称性。
     \end{itemize}
     应注意当变换矩阵表示旋转时的行列式的值取$1$；当变换矩阵表示反演时的行列式的值取$-1$。
 
@@ -702,7 +703,7 @@
 
     \begin{figure}[!htbp]
         \centering    
-        \includegraphics[height=8em, keepaspectratio=true]{pic/1-43}
+        \includegraphics[height=6em, keepaspectratio=true]{pic/1-43}
         \caption{晶体的旋转操作}
         \label{fig:1-13}
     \end{figure}
@@ -1170,8 +1171,8 @@
         \label{fig:1-16}
     \end{figure}
 
-    傅里叶变换表征所包含的不同频率的正/余弦波的振幅，其公式如下：
-    \begin{align}
+    \textbf{傅里叶变换}\index{傅里叶变换}表征所包含的不同频率的正/余弦波的振幅，其公式如下：
+    \begin{align}\label{eq:2.1}
         F(k)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} f(x)e^{-jkx} \,\mathrm{d}x\\
         f(x)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} F(k)e^{+jkx} \,\mathrm{d}k 
     \end{align}
@@ -1210,7 +1211,7 @@
     \end{equation}
     其中$n$取整数，$n=\dots{-2},-1,0,1,2\dots$
 
-    坐标空间的原胞的平移矢量写为$\vec{R}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，其中$\vec{a_i}$为原胞对应方向的晶格基矢；类似的，我们定义晶格中的任意波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，其中$\vec{b_j}$为波矢空间中的基矢，称为\textbf{倒格矢}\index{倒格矢}，且$a_i$、$b_j$满足：
+    坐标空间的原胞的平移矢量写为$\vec{R}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，其中$\vec{a_i}$为原胞对应方向的晶格基矢；类似的，我们定义晶格中的任意波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，其中$\vec{b_j}$为波矢空间中的基矢，称为\textbf{倒格子基矢}\index{倒格子基矢}，且$a_i$、$b_j$满足：
 
     \begin{equation}\label{eq:2.6}
         \vec{a_i}\cdot\vec{b_j}=
@@ -1221,7 +1222,7 @@
         =2\pi\delta_{ij}
     \end{equation}
 
-    在三维笛卡尔空间中，倒格矢$\vec{b_i}$与另外两个晶格基矢$\vec{a_j}$、$\vec{a_k}$正交，其单位是$\frac{2\pi}{\mbox{[长度]}}$。倒格子依然是结点的有序排列，从点阵的角度，倒格子同样属于布拉菲点阵，也就自然只有7种晶系、十四种布拉菲格子。
+    在三维笛卡尔空间中，倒格子基矢$\vec{b_i}$与另外两个晶格基矢$\vec{a_j}$、$\vec{a_k}$正交，其单位是$\frac{2\pi}{\mbox{[长度]}}$。倒格子依然是结点的有序排列，从点阵的角度，倒格子同样属于布拉菲点阵，也就自然只有7种晶系、十四种布拉菲格子。
 
     正格子与倒格子的归纳如\autoref{tab:1-13}所示：
     \begin{table}[!htbp]
@@ -1243,9 +1244,9 @@
         \label{tab:1-13}
     \end{table}
 
-\subsection{倒格矢的确定}
-    本节则从\autoref{eq:2.6}出发，介绍如何确定二维倒格矢与三维倒格矢，并给出常见点阵的倒格矢。
-\subsubsection{二维倒格矢的确定}
+\subsection{倒格子基矢的确定}
+    本节则从\autoref{eq:2.6}出发，介绍如何确定二维倒格子基矢与三维倒格子基矢，并给出常见点阵的倒格子基矢。
+\subsubsection{二维倒格子基矢的确定}
     在二维点阵中重述\autoref{eq:2.6}有：
     \begin{subequations}\label{eq:2.7}
     \begin{align}
@@ -1253,24 +1254,24 @@
         \vec{b_1} \cdot \vec{a_2} &= 0
     \end{align}
     \end{subequations}
-    我们只考虑了一个方向的倒格矢$\vec{b_1}$，另一个方向的倒格矢$\vec{b_2}$同理。
+    我们只考虑了一个方向的倒格子基矢$\vec{b_1}$，另一个方向的倒格子基矢$\vec{b_2}$同理。
 
     想确定矢量就是要确定其模值与方向，而\autoref{eq:2.7}的两个式子就分别确定了模值与方向：
     \begin{itemize}[itemsep=0pt,parsep=0pt]
-        \item 对于$\vec{b_1} \cdot \vec{a_2} = 0$，可知倒格矢$\vec{b_1}$与晶格基矢$\vec{a_2}$正交，倒格矢$\vec{b_1}$的方向垂直于晶格基矢$\vec{a_2}$；
-        \item 对于$\vec{b_1} \cdot \vec{a_1} = 2\pi$，可知晶格基矢$\vec{a_1}$在倒格矢$\vec{b_1}$方向上的投影，与倒格矢$\vec{b_1}$模值的乘积，等于$2\pi$。
+        \item 对于$\vec{b_1} \cdot \vec{a_2} = 0$，可知倒格子基矢$\vec{b_1}$与晶格基矢$\vec{a_2}$正交，倒格子基矢$\vec{b_1}$的方向垂直于晶格基矢$\vec{a_2}$；
+        \item 对于$\vec{b_1} \cdot \vec{a_1} = 2\pi$，可知晶格基矢$\vec{a_1}$在倒格子基矢$\vec{b_1}$方向上的投影，与倒格子基矢$\vec{b_1}$模值的乘积，等于$2\pi$。
     \end{itemize}
-    从而倒格矢$\vec{b_1}$得到确定。
+    从而倒格子基矢$\vec{b_1}$得到确定。
 
-    \nameref{tab:1-5}中的长方晶格、六角晶格的倒格矢如\autoref{fig:1-17}所示：
+    \nameref{tab:1-5}中的长方晶格、六角晶格的倒格子基矢如\autoref{fig:1-17}所示：
     \begin{figure}[!htbp]
         \centering    
         \includegraphics[height=14em, keepaspectratio=true]{pic/2-04}
-        \caption{二维倒格矢的确定}
+        \caption{二维倒格子基矢的确定}
         \label{fig:1-17}
     \end{figure}
 
-\subsubsection{三维倒格矢的确定}
+\subsubsection{三维倒格子基矢的确定}
     在三维点阵中重述\autoref{eq:2.6}有：
     \begin{subequations}\label{eq:2.8}
     \begin{align}
@@ -1279,16 +1280,16 @@
         \vec{b_1} \cdot \vec{a_3} &= 0
     \end{align}
     \end{subequations}
-    对于倒格矢$b_2$、$b_3$同理。
+    对于倒格子基矢$b_2$、$b_3$同理。
 
     依然从方向与模值的角度进行考虑\autoref{eq:2.8}：
     \begin{itemize}[itemsep=0pt,parsep=0pt]
-        \item 对于$\vec{b_1} \cdot \vec{a_2} = 0$和$\vec{b_1} \cdot \vec{a_3} = 0$，可知倒格矢$\vec{b_1}$与晶格基矢$\vec{a_2}$、$\vec{a_3}$正交，倒格矢$\vec{b_1}$的方向垂直于晶格基矢$\vec{a_2}$与$\vec{a_2}$所确定的平面。如果记晶格基矢$\vec{a_2}$与$\vec{a_2}$所确定的平面的法向量为$\vec{e_n}=\vec{a_2} \times \vec{a_3}$，则有$\vec{b_1}\mathop{//}\vec{e_n}$；
-        \item 对于$\vec{b_1} \cdot \vec{a_1} = 2\pi$，可知晶格基矢$\vec{a_1}$在法向量$\vec{e_n}=\vec{a_2} \times \vec{a_3}$方向上的投影，与倒格矢$\vec{b_1}$模值的乘积，等于$2\pi$。
+        \item 对于$\vec{b_1} \cdot \vec{a_2} = 0$和$\vec{b_1} \cdot \vec{a_3} = 0$，可知倒格子基矢$\vec{b_1}$与晶格基矢$\vec{a_2}$、$\vec{a_3}$正交，$\vec{b_1}$的方向垂直于$\vec{a_2}$与$\vec{a_2}$所确定的平面。如果记$\vec{a_2}$与$\vec{a_2}$所确定的平面的法向量为$\vec{e_n}=\vec{a_2} \times \vec{a_3}$，则有$\vec{b_1}\mathop{//}\vec{e_n}$；
+        \item 对于$\vec{b_1} \cdot \vec{a_1} = 2\pi$，可知晶格基矢$\vec{a_1}$在法向量$\vec{e_n}=\vec{a_2} \times \vec{a_3}$方向上的投影，与倒格子基矢$\vec{b_1}$模值的乘积，等于$2\pi$。
     \end{itemize}
-    从而倒格矢$\vec{b_1}$得到确定。
+    从而倒格子基矢$\vec{b_1}$得到确定。
 
-    为了方便计算，整理三维倒格矢的公式如下：
+    为了方便计算，整理三维倒格子基矢的公式如下：
     \begin{equation}\label{eq:2.9}
     \begin{aligned}
         \vec{b_1} &=2\pi\frac{\vec{a_2}\times\vec{a_3}}{\vec{a_1}\cdot(\vec{a_2}\times\vec{a_3})}\\
@@ -1303,7 +1304,7 @@
         \setlength{\tabcolsep}{1em}
         \begin{tabular}{cclcl}
             \toprule
-            晶格类型 & \multicolumn{2}{c}{原胞基矢} & \multicolumn{2}{c}{倒格矢}\\
+            晶格类型 & \multicolumn{2}{c}{原胞基矢} & \multicolumn{2}{c}{倒格子基矢}\\
             \midrule
             面心立方 & \includegraphics[valign=m, height=3em, keepaspectratio=true]{pic/1-25} & $
             \begin{cases}
@@ -1334,14 +1335,109 @@
             \bottomrule
         \end{tabular}
         }
-        \caption{面心立方与体心立方的倒格矢}
+        \caption{面心立方与体心立方的倒格子}
         \label{tab:1-14}
     \end{table}
 
-    \autoref{tab:1-14}考虑面心立方与体心立方的倒格矢，可以发现：面心立方与体心立方互为倒格子。
+    \autoref{tab:1-14}考虑面心立方与体心立方的倒格子，可以发现：面心立方与体心立方互为倒格子。
 
 \subsection{倒格子的性质}
+    对于正格子及其平移矢量$\vec{R_l}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，所对应的倒格子及任意波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，归纳总结以下性质：
+
+\subsubsection{正格子、倒格子的基矢彼此正交}
+    由\autoref{eq:2.6}可知，正/倒格子的基矢$\vec{a_i}$、$\vec{b_j}$彼此正交，且满足：
+    \begin{equation}
+        \vec{R_l}\cdot\vec{k}=2\pi(l_1k_1+l_2k_2+l_3k_3)=2\pi n
+    \end{equation}
+    其中$n$取整数。
+
+\subsubsection{正格子、倒格子的测度的乘积一定}
+    我们引入\textbf{测度}\index{测度}的概念。数学上，测度（Measure）是一个函数，对一个给定集合的某些子集指定一个数，这个数可以比作大小、体积、概率等等。具体对于晶体来说，我们常用大写字母反映晶体的宏观测度：
+    \begin{itemize}[itemsep=0pt,parsep=0pt]
+        \item \textbf{一维晶体的测度即长度$L$}：如一维原子链的长度；
+        \item \textbf{二维晶体的测度即面积$S$}：如二维平面材料的面积；
+        \item \textbf{三维晶体的测度即体积$V$}：如三维晶体的体积；
+    \end{itemize}
+    此外用小写字母反映组成晶格的正格子原胞的测度，即一个正格子原胞的长度$l$、面积$s$、体积$v$。倒格子原胞则是正格子原胞再上标$^\ast$。
+
+    若晶体由$N$个正格子原胞组成，则显然下述关系成立：
+    \begin{equation}\label{eq:2.11}
+    \begin{cases}
+        L = N\cdot l\\
+        S = N\cdot s\\
+        V = N\cdot v
+    \end{cases}
+    \end{equation}
+    这也是晶体宏观测度与正格子原胞测度的关系，我们将在\autoref{chap:3}中多次使用到这一关系式。
+
+\newpage
+    我们现在关注正/倒格子的原胞测度与基矢的关系。
+    \begin{enumerate}[itemsep=0pt,parsep=0pt]
+        \item \textbf{一维情况}
+        \begin{align*}
+        l     &=\left\lvert\vec{a_1}\right\rvert\\
+        l^\ast&=\left\lvert\vec{b_1}\right\rvert
+               =\frac{2\pi}{\left\lvert\vec{a_1}\right\rvert}
+               =\frac{2\pi}{l}\\
+        l\cdot l^\ast &= 2\pi 
+        \end{align*}
+
+        \item \textbf{二维情况}\\
+        对任意向量$\vec u,\vec v,\vec w,\vec z$，有恒等式
+        \[
+        (\vec u\times\vec v)\cdot(\vec w\times\vec z)
+        =(\vec u\cdot\vec w)\cdot(\vec v\cdot\vec z)-(\vec u\cdot\vec z)\cdot(\vec v\cdot\vec w)
+        \]
+        由该引理可得：
+        \begin{align*}
+        s               &=\left\lvert\vec{a_1} \times \vec{a_2}\right\rvert\\
+        s^\ast          &=\left\lvert\vec{b_1} \times \vec{b_2}\right\rvert\\
+        \left\lvert(\vec{a_1} \times \vec{a_2})\cdot (\vec{b_1} \times \vec{b_2})\right\rvert&=\left\lvert(\vec{a_1}\cdot\vec{b_1})\cdot(\vec{a_2}\cdot\vec{b_2})-(\vec{a_1}\cdot\vec{b_2})\cdot(\vec{a_2}\cdot\vec{b_1})\right\rvert\\
+        \left\lvert\vec{a_1} \times \vec{a_2}\right\rvert\left\lvert\vec{b_1} \times \vec{b_2}\right\rvert&=\left\lvert(2\pi)\cdot(2\pi)-(0)\cdot(0)\right\rvert\\
+        s\cdot s^\ast   &= (2\pi)^2
+        \end{align*}
+
+        \item \textbf{三维情况}\\
+        由\autoref{eq:2.9}及恒等式$
+        (\mathbf{u} \times \mathbf{v}) \times (\mathbf{w} \times \mathbf{z})
+        = \mathbf{w}\,\big[(\mathbf{u} \times \mathbf{v}) \cdot \mathbf{z}\big]
+        - \mathbf{z}\,\big[(\mathbf{u} \times \mathbf{v}) \cdot \mathbf{w}\big]
+        $整理得到：
+        \begin{align*}
+            v      &= \vec{a_1} \cdot (\vec{a_2}\times \vec{a_3})\\
+            v^\ast &= \vec{b_1} \cdot (\vec{b_2}\times \vec{b_3})\\
+                   &= (2\pi)^3 \frac{(\vec{a_2}\times \vec{a_3})\cdot ((\vec{a_3}\times \vec{a_1})\times (\vec{a_1}\times \vec{a_2}))}{(\vec{a_1}\cdot (\vec{a_2}\times \vec{a_3}))^3}\\
+                   &= (2\pi)^3 \frac{(\vec{a_2}\times \vec{a_3})\cdot ((\vec{a_3}\cdot(\vec{a_1}\times \vec{a_2}))\cdot \vec{a_1}-(\vec{a_1}\cdot(\vec{a_1}\times \vec{a_2}))\cdot \vec{a_3})}{(\vec{a_1}\cdot (\vec{a_2}\times \vec{a_3}))^3}\\
+                   &= (2\pi)^3 \frac{(\vec{a_2}\times \vec{a_3})\cdot (v\cdot \vec{a_1}-0)}{v^3}=(2\pi)^3 \frac{(\vec{a_2}\times \vec{a_3}\cdot \vec{a_1})\cdot v}{v^3}\\
+                   &= (2\pi)^3 \frac{v^2}{v^3} = \frac{(2\pi)^3}{v}\\
+            v\cdot v^\ast   &= (2\pi)^3
+        \end{align*}
+        
+    \end{enumerate}
+
+    综上，关于测度满足\autoref{tab:1-15}所示性质：
+    \begin{table}[!htbp]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \setlength{\tabcolsep}{1em}
+    \begin{tabular}{cccc}
+        \toprule
+                & 正格子测度 & 倒格子测度 & 满足关系 \\
+        \midrule
+        一维 &  $l$      & $l^\ast $ & $l\cdot l^\ast = 2\pi $ \\
+        二维 &  $s$      & $s^\ast $ & $s\cdot s^\ast = (2\pi)^2 $ \\
+        三维 &  $v$      & $v^\ast $ & $v\cdot v^\ast = (2\pi)^3 $ \\
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{正格子与倒格子的测度}
+    \label{tab:1-15}
+    \end{table}
+
+\subsubsection{正格子是倒格子的倒格子}
+    \autoref{eq:2.1}即傅里叶变换具有\textbf{互易对称性}\index{傅里叶变换的互易对称性}，即对信号$f(x)$执行两次傅里叶变换的结果将是原信号的反褶$f(-x)$：
     
+
 
 \section{布里渊区}
 \section{X射线衍射}\label{sec:2-3}
