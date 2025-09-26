@@ -229,9 +229,9 @@
             单斜晶系 & $a\neq b\neq c$ & $\alpha=\gamma=90^{\circ}\neq \beta $           & 简单单斜、底心单斜    & \\
             三角晶系 & $a=b=c$         & $\alpha=\beta=\gamma\neq90^{\circ}<120^{\circ}$ & 三角    & \\
             正交晶系 & $a\neq b\neq c$ & $\alpha=\beta=\gamma=90^{\circ}$                & \makecell{简单正交、底心正交、\\体心正交、面心正交}    & \\
-            四角晶系 & $a=b\neq c$     & $\alpha=\beta=\gamma=90^{\circ}$                & 简单四角、体心四角    & \\
+            四方晶系 & $a=b\neq c$     & $\alpha=\beta=\gamma=90^{\circ}$                & 简单四角、体心四角    & \\
             六角晶系 & $a=b\neq c$     & $\alpha=\beta=90^{\circ}, \gamma=120^{\circ}$   & 六角    & \\
-            正方晶系 & $a=b=c$         & $\alpha=\beta=\gamma=90^{\circ}$                & \makecell{简单立方、体心立方、\\面心立方}    & \\
+            立方晶系 & $a=b=c$         & $\alpha=\beta=\gamma=90^{\circ}$                & \makecell{简单立方、体心立方、\\面心立方}    & \\
             \bottomrule
         \end{tabular}
         }
@@ -445,7 +445,7 @@
 
     对于晶格中的一组平行且等距的晶面，将完全无遗地包括所有结点选取某个结点作为原点，以晶胞基矢为坐标轴建立坐标系，如\autoref{fig:1-10}所示。
     
-    记晶面的法线方向为$\vec{e_n}$，晶面间距为$d$。指向第$\mu$个晶面（$\mu$为整数）任意位置的位矢为$\vec{X}$，该晶面在坐标轴上的截距依次为$r_\mu a$、$s_\mu a$、$t_\mu a$。
+    记晶面的法线方向为$\vec{e_n}$，晶面间距为$d$。指向第$\mu$个晶面（$\mu$为整数）任意位置的位矢为$\vec{X}$，该晶面在坐标轴上的截距依次为$r_\mu a_1$、$s_\mu a_2$、$t_\mu a_3$。
 
     \begin{figure}[!htbp]
         \centering    
@@ -464,13 +464,13 @@
     \begin{cases}
         r_\mu \vec{a_1} \cdot \vec{e_n} = r_\mu \cos (\vec{a_1}, \vec{e_n}) = \mu d \\
         s_\mu \vec{a_2} \cdot \vec{e_n} = s_\mu \cos (\vec{a_2}, \vec{e_n}) = \mu d \\
-        t_\mu \vec{a_1} \cdot \vec{e_n} = t_\mu \cos (\vec{a_3}, \vec{e_n}) = \mu d \\
+        t_\mu \vec{a_3} \cdot \vec{e_n} = t_\mu \cos (\vec{a_3}, \vec{e_n}) = \mu d \\
     \end{cases}
     \]
 
     联立可得：
     \[
-        \cos (\vec{a_1}, \vec{e_n}) : \cos (\vec{a_1}, \vec{e_n}) : \cos (\vec{a_1}, \vec{e_n}) = \frac{1}{r_\mu} : \frac{1}{r_\mu} : \frac{1}{r_\mu}
+        \cos (\vec{a_1}, \vec{e_n}) : \cos (\vec{a_2}, \vec{e_n}) : \cos (\vec{a_3}, \vec{e_n}) = \frac{1}{r_\mu} : \frac{1}{s_\mu} : \frac{1}{t_\mu}
     \]
 
     即：晶面法线方向的方向余弦之比，等于晶面与对应方向坐标轴截距的倒数之比。因此方向余弦和截距表述晶面方向是等价的，常用晶面与坐标轴的截距来表示晶面方向。
@@ -485,7 +485,7 @@
     \]
     其中$\mu$、$\mu_1$、$\mu_2$、$\mu_3$均为整数。
     
-    则$r_\mu a$、$s_\mu a$、$t_\mu a$均是两个整数之比，必为有理数。
+    则$r_\mu$、$s_\mu$、$t_\mu$均是两个整数之比，必为有理数。
 
 \subsubsection{晶面指数}
     若第一个晶面在坐标轴上的截距为$r_1 a$、$s_1 a$、$t_1 a$，取截距的倒数$h_1 = \frac{1}{r_1 a}, h_2 = \frac{1}{s_1 a}, h_3 = \frac{1}{t_1 a}$来标志该族晶面。若晶面在坐标轴上无截距，即截距无穷大，规定倒数为0。定义$(h_1, h_2, h_3)$为晶面指数，用来反映晶面所确定的方向。一般要求$h_1, h_2, h_3$互质。
@@ -1211,7 +1211,7 @@
     \end{equation}
     其中$n$取整数，$n=\dots{-2},-1,0,1,2\dots$
 
-    坐标空间的原胞的平移矢量写为$\vec{R}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，其中$\vec{a_i}$为原胞对应方向的晶格基矢；类似的，我们定义晶格中的任意波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，其中$\vec{b_j}$为波矢空间中的基矢，称为\textbf{倒格子基矢}\index{倒格子基矢}，且$a_i$、$b_j$满足：
+    坐标空间的原胞的平移矢量写为$\vec{R}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，其中$\vec{a_i}$为原胞对应方向的晶格基矢；类似的，我们定义晶格中的波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，其中$\vec{b_j}$为波矢空间中的基矢，称为\textbf{倒格子基矢}\index{倒格子基矢}，且$a_i$、$b_j$满足：
 
     \begin{equation}\label{eq:2.6}
         \vec{a_i}\cdot\vec{b_j}=
@@ -1342,11 +1342,11 @@
     \autoref{tab:1-14}考虑面心立方与体心立方的倒格子，可以发现：面心立方与体心立方互为倒格子。
 
 \subsection{倒格子的性质}
-    对于正格子及其平移矢量$\vec{R_l}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，所对应的倒格子及任意波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，归纳总结以下性质：
+    对于正格子及其平移矢量$\vec{R_l}=l_1\vec{a_1}+l_2\vec{a_2}+l_3\vec{a_3}$，所对应的倒格子及波矢$\vec{k}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}$，归纳总结以下性质：
 
 \subsubsection{正格子、倒格子的基矢彼此正交}
     由\autoref{eq:2.6}可知，正/倒格子的基矢$\vec{a_i}$、$\vec{b_j}$彼此正交，且满足：
-    \begin{equation}
+    \begin{equation}\label{eq:2.10}
         \vec{R_l}\cdot\vec{k}=2\pi(l_1k_1+l_2k_2+l_3k_3)=2\pi n
     \end{equation}
     其中$n$取整数。
@@ -1418,7 +1418,6 @@
     综上，关于测度满足\autoref{tab:1-15}所示性质：
     \begin{table}[!htbp]
     \centering
-    \resizebox{\textwidth}{!}{
     \setlength{\tabcolsep}{1em}
     \begin{tabular}{cccc}
         \toprule
@@ -1429,13 +1428,67 @@
         三维 &  $v$      & $v^\ast $ & $v\cdot v^\ast = (2\pi)^3 $ \\
         \bottomrule
     \end{tabular}
-    }
     \caption{正格子与倒格子的测度}
     \label{tab:1-15}
     \end{table}
 
 \subsubsection{正格子是倒格子的倒格子}
     \autoref{eq:2.1}即傅里叶变换具有\textbf{互易对称性}\index{傅里叶变换的互易对称性}，即对信号$f(x)$执行两次傅里叶变换的结果将是原信号的反褶$f(-x)$：
+    \[
+        F(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} f(x)e^{-jkx} \,\mathrm{d}x\\
+    \]
+    
+    对$F(k)$再做一次傅里叶变换，变换后的坐标记为$y$有：
+    \begin{align*}
+    \mathcal{F}\{F(k)\}
+    &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} F(k)\,e^{-iky}\,\mathrm{d}k \\
+    &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}
+    \left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(x)\,e^{-ikx}\,\mathrm{d}x\right)
+    e^{-iky}\,\mathrm{d}k \\
+    &=\frac{1}{2\pi}\int_{-\infty}^{\infty} f(x)
+    \left(\int_{-\infty}^{\infty} e^{-ik(x+y)}\,\mathrm{d}k\right)\mathrm{d}x \\
+    &=\frac{1}{2\pi}\int_{-\infty}^{\infty} f(x)\,\bigl(2\pi\,\delta(x+y)\bigr)\,\mathrm{d}x
+    \qquad\text{（使用 }\int e^{-ik t}\,dk=2\pi\delta(t)\text{）} \\
+    &=\int_{-\infty}^{\infty} f(x)\,\delta(x+y)\,\mathrm{d}x
+    = f(-y).
+    \end{align*}
+
+    因此，对信号$f(x)$连续做两次按 \(1/\sqrt{2\pi}\) 规范的傅里叶变换，会得到原信号的反褶（变量取反）：
+    \[
+    \mbox{f(x)}\xrightarrow{\mbox{傅里叶变换}}\mbox{F(k)}\xrightarrow{\mbox{傅里叶变换}}\mbox{f(-x)}
+    \]
+
+    同理，正格子与倒格子成傅里叶变换对：正格子的傅里叶变换是倒格子；倒格子的逆傅里叶变换是正格子。
+    
+    正格子的倒格子的倒格子，即连续两次傅里叶变换，考虑布拉菲点阵的反演对称性，仍是正格子自身。
+
+\subsubsection{正格子与倒格子的宏观对称性一致}
+    对于正格子，记其中任意两点的平移矢量$\vec{R_l}$，点对称操作矩阵为$D$。则点对称操作后，由于晶格自身重合，新得到的矢量$D\cdot \vec{R_l}$依然是从正格子一个结点指向另一个结点的平移矢量。记点对称操作$D$的逆操作为$D^{-1}$，同理矢量$D^{-1}\cdot \vec{R_l}$也是平移矢量。
+
+    对于倒格子，倒格子矢量$\vec{k}$和正格子的位移矢量$D^{-1}\cdot \vec{R_l}$满足\autoref{eq:2.10}所述关系：
+    \[
+    D^{-1}\vec{R_l}\cdot\vec{k}=2\pi n
+    \]
+
+    上式作为两个矢量的点乘，反映两个矢量投影的乘积。而点对称操作作为正交变换，并不改变距离。上式左右同作点对称操作$D$有：
+    \begin{align*}
+    D\cdot (D^{-1}\vec{R_l}\cdot\vec{k}) &= D\cdot(2\pi n)\\
+    (D\cdot D^{-1}\vec{R_l}) \cdot (D\cdot\vec{k}) &= 2\pi n\\
+    \vec{R_l} \cdot (D\cdot\vec{k}) &= 2\pi n
+    \end{align*}
+
+    说明新矢量$D\vec{k}$仍然是倒格子矢量。
+    
+    倒格子矢量$\vec{k}$经正格子的点对称操作$D$后，得到的新矢量$D\vec{k}$仍然是倒格子矢量，即倒格子对点对称操作$D$具有宏观对称性。而这对正格子所有的点对称矩阵均成立。\textbf{因此倒格子保留了正格子的全部宏观对称性。}
+
+\subsubsection{倒格子的晶面指数}
+    我们已经知道，正格子经过傅里叶变换所得到的倒格子，本质上是由若干结点有序排列所组成的布拉菲点阵。倒格子中，从一个结点指向另一个结点的倒格子矢量称为\textbf{倒格矢}或\textbf{倒易矢量}\index{倒格矢}，将其展开在倒格子基矢上：
+    \[
+    \vec{G}=k_1\vec{b_1}+k_2\vec{b_2}+k_3\vec{b_3}
+    \]
+
+    波矢$\vec{k}$作为倒格子即波矢空间中的任意矢量，其选取是任意的；倒格矢$\vec{G}$则必须从倒格子的一个结点出发，指向另一个倒格子结点。正如正格子中，存在任意的位移$\vec{r}$和晶格的平移矢量$\vec{R_l}$。我们将在本章最后的\autoref{sec:2-3}中同时使用到这四种矢量，应当予以辨析。
+
     
 
 
